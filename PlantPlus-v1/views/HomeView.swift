@@ -6,32 +6,45 @@
 //
 
 import SwiftUI
+import Firebase
+import FirebaseFirestore
+import FirebaseAuth
 
 struct HomeView: View {
-    
+    private let fireDBHelper = FireDBHelper.getInstance() ?? FireDBHelper(store: Firestore.firestore())
+    private let fireAuthHelper = FireAuthHelper()
     let perenualHelper = PerenualHelper()
+    
+    @State private var root: RootView = .Login
     
     var body: some View {
         NavigationView {
-            TabView {
-                PlantsView()
-                    .environmentObject(self.perenualHelper)
-                    .tabItem {
-                        Label("Plants", systemImage: "list.dash")
+            switch root {
+                case .Login:
+                    LoginView(rootScreen: $root).environmentObject(self.fireAuthHelper).environmentObject(self.fireDBHelper).environmentObject(self.perenualHelper)
+                case .Home:
+                    TabView {
+                        PlantsView()
+                            .environmentObject(self.perenualHelper)
+                            .tabItem {
+                                Label("Plants", systemImage: "list.dash")
+                            }
+                        
+                        MyPlantsView()
+                            .tabItem {
+                                Label("My Plants", systemImage: "square")
+                            }
+                        
+                        UserProfileView()
+                            .environmentObject(self.fireAuthHelper)
+                            .environmentObject(self.fireDBHelper)
+                            .environmentObject(self.perenualHelper)
+                            .tabItem {
+                                Label("Profile", systemImage: "person")
+                            }
+                        
                     }
-                
-                MyPlantsView()
-                    .tabItem {
-                        Label("My Plants", systemImage: "square")
-                    }
-                
-                UserProfileView()
-                    .tabItem {
-                        Label("Profile", systemImage: "person")
-                    }
-                
-            }
-            
+            } // Switch ends
         }// Navigation ends
     }// body ends
 }

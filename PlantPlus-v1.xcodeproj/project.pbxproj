@@ -29,6 +29,9 @@
 		528BE64A2A281F140084BB0F /* FireAuthHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528BE6492A281F140084BB0F /* FireAuthHelper.swift */; };
 		528BE64C2A281F5A0084BB0F /* UserPlants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528BE64B2A281F5A0084BB0F /* UserPlants.swift */; };
 		528BE64E2A281F880084BB0F /* FireDBHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528BE64D2A281F880084BB0F /* FireDBHelper.swift */; };
+		528BE6502A295CD10084BB0F /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528BE64F2A295CD10084BB0F /* SignUpView.swift */; };
+		528BE6522A2E68830084BB0F /* RootViewEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528BE6512A2E68830084BB0F /* RootViewEnum.swift */; };
+		528BE6542A2E696F0084BB0F /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528BE6532A2E696F0084BB0F /* LoginView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +53,9 @@
 		528BE6492A281F140084BB0F /* FireAuthHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FireAuthHelper.swift; sourceTree = "<group>"; };
 		528BE64B2A281F5A0084BB0F /* UserPlants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPlants.swift; sourceTree = "<group>"; };
 		528BE64D2A281F880084BB0F /* FireDBHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FireDBHelper.swift; sourceTree = "<group>"; };
+		528BE64F2A295CD10084BB0F /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
+		528BE6512A2E68830084BB0F /* RootViewEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewEnum.swift; sourceTree = "<group>"; };
+		528BE6532A2E696F0084BB0F /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +130,7 @@
 				528BE6382A201D1C0084BB0F /* PlantDetail.swift */,
 				528BE63C2A27B5540084BB0F /* Plant.swift */,
 				528BE64B2A281F5A0084BB0F /* UserPlants.swift */,
+				528BE6512A2E68830084BB0F /* RootViewEnum.swift */,
 			);
 			path = models;
 			sourceTree = "<group>";
@@ -136,6 +143,8 @@
 				528BE62E2A2016CD0084BB0F /* MyPlantsView.swift */,
 				528BE6302A2016E60084BB0F /* UserProfileView.swift */,
 				528BE63A2A201DBF0084BB0F /* PlantDetailView.swift */,
+				528BE64F2A295CD10084BB0F /* SignUpView.swift */,
+				528BE6532A2E696F0084BB0F /* LoginView.swift */,
 			);
 			path = views;
 			sourceTree = "<group>";
@@ -222,6 +231,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				528BE6372A201CF30084BB0F /* DataDiseases.swift in Sources */,
+				528BE6522A2E68830084BB0F /* RootViewEnum.swift in Sources */,
+				528BE6502A295CD10084BB0F /* SignUpView.swift in Sources */,
 				528BE6312A2016E60084BB0F /* UserProfileView.swift in Sources */,
 				528BE62F2A2016CD0084BB0F /* MyPlantsView.swift in Sources */,
 				528BE63D2A27B5540084BB0F /* Plant.swift in Sources */,
@@ -229,6 +240,7 @@
 				528BE6252A1FA4EA0084BB0F /* HomeView.swift in Sources */,
 				528BE62B2A2016AE0084BB0F /* PlantsView.swift in Sources */,
 				528BE64E2A281F880084BB0F /* FireDBHelper.swift in Sources */,
+				528BE6542A2E696F0084BB0F /* LoginView.swift in Sources */,
 				528BE6392A201D1C0084BB0F /* PlantDetail.swift in Sources */,
 				528BE6352A201CBD0084BB0F /* PerenualResponse.swift in Sources */,
 				528BE6332A201C640084BB0F /* PerenualHelper.swift in Sources */,
