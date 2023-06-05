@@ -29,15 +29,28 @@ struct UserProfileView: View {
                         .textInputAutocapitalization(.never)
                         .keyboardType(.namePhonePad)
                     Button(action: {
+                        saveUserData()
                     }) {
                         Text("Save")
                     }
                 }
             }//form ends
             .onAppear {
-                
+                //self.name = self.fireDBHelper.user.name
+                //self.phoneNumber = self.fireDBHelper.user.contactNumber
+                //self.email = self.fireDBHelper.user.email
             }
         }
+    }
+    
+    func saveUserData() {
+        let userData = UserPlants(name: self.name, email: self.email, contactNumber: self.phoneNumber)
+        //Get id of document
+        //var userIdS = self.fireAuthHelper.user?.email ?? ""
+        //updating document
+        //self.fireDBHelper.updateUser(userToUpdate: userData, userID: userIdS)
+        //get data of user
+        //self.fireDBHelper.getUser()
     }
 }
 
