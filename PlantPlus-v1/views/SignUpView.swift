@@ -76,7 +76,7 @@ struct SignUpView: View {
         let newUser = UserPlants(name: self.name, email: self.email, contactNumber: self.contactNumber)
         
         self.fireAuthHelper.signUp(newUser: newUser, password: self.password)
-        //self.rootScreen = .Home
+        self.rootScreen = .Home
     }
 }
 
