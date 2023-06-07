@@ -12,6 +12,7 @@ import FirebaseAuth
 
 struct HomeView: View {
     private let fireDBHelper = FireDBHelper.getInstance() ?? FireDBHelper(store: Firestore.firestore())
+    
     private let fireAuthHelper = FireAuthHelper()
     let perenualHelper = PerenualHelper()
     
@@ -26,11 +27,15 @@ struct HomeView: View {
                     TabView {
                         PlantsView()
                             .environmentObject(self.perenualHelper)
+                            .environmentObject(self.fireDBHelper)
+                            .environmentObject(self.fireAuthHelper)
                             .tabItem {
                                 Label("Plants", systemImage: "list.dash")
                             }
                         
                         MyPlantsView()
+                            .environmentObject(self.fireDBHelper)
+                            .environmentObject(self.fireAuthHelper)
                             .tabItem {
                                 Label("My Plants", systemImage: "square")
                             }
