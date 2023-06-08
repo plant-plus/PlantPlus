@@ -17,11 +17,9 @@ struct PlantsView: View {
         NavigationView {
             VStack {
                 List {
-            
                     if searchText.isEmpty{
 
                         ForEach(self.perenualHelper.perenualResponse.data?.enumerated().map({$0}) ?? [], id: \.element.self){index, currentPlant in
-                            
                             NavigationLink(destination: PlantDetailView(selectedPlant: "\(currentPlant.id!)")){
                                 HStack {
                                     SwiftUI.Image(uiImage: currentPlant.image ?? UIImage())
@@ -35,8 +33,7 @@ struct PlantsView: View {
                                     }
                                 }
                             }
-                        }
-                        
+                        }                        
                     }else{
                         ForEach(self.perenualHelper.perenualResponse.data?.enumerated().map({$0}) ?? [], id: \.element.self){index, currentPlant in
                             if (currentPlant.common_name ?? "").contains(searchText){
