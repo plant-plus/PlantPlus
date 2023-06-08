@@ -66,7 +66,7 @@ struct PlantsView: View {
     .onAppear(){
         //try to fetch weather using fetchWeatherInfo() function
         self.getPlantsList()
-        //self.fireDBHelper.getUser()
+        self.fireDBHelper.getUser()
     }
     
     }

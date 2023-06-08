@@ -13,6 +13,9 @@ struct UserProfileView: View {
     @State private var email: String = ""
     @State private var phoneNumber: String = ""
     
+    @EnvironmentObject var fireDBHelper : FireDBHelper
+    @EnvironmentObject var fireAuthHelper : FireAuthHelper
+    
     var body: some View {
         VStack {
             Form {
@@ -36,9 +39,9 @@ struct UserProfileView: View {
                 }
             }//form ends
             .onAppear {
-                //self.name = self.fireDBHelper.user.name
-                //self.phoneNumber = self.fireDBHelper.user.contactNumber
-                //self.email = self.fireDBHelper.user.email
+                self.name = self.fireDBHelper.user.name
+                self.phoneNumber = self.fireDBHelper.user.contactNumber
+                self.email = self.fireDBHelper.user.email
             }
         }
     }
@@ -46,16 +49,17 @@ struct UserProfileView: View {
     func saveUserData() {
         let userData = UserPlants(name: self.name, email: self.email, contactNumber: self.phoneNumber)
         //Get id of document
-        //var userIdS = self.fireAuthHelper.user?.email ?? ""
+        var userIdS = self.fireAuthHelper.user?.email ?? ""
         //updating document
-        //self.fireDBHelper.updateUser(userToUpdate: userData, userID: userIdS)
+        self.fireDBHelper.updateUser(userToUpdate: userData, userID: userIdS)
         //get data of user
-        //self.fireDBHelper.getUser()
+        self.fireDBHelper.getUser()
     }
 }
 
+/*
 struct UserProfileView_Previews: PreviewProvider {
     static var previews: some View {
         UserProfileView()
     }
-}
+}*/
