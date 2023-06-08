@@ -27,11 +27,14 @@ struct HomeView: View {
                         PlantsView()
                             .environmentObject(self.perenualHelper)
                             .environmentObject(self.fireDBHelper)
+                            .environmentObject(self.fireAuthHelper)
                             .tabItem {
                                 Label("Plants", systemImage: "list.dash")
                             }
                         
                         MyPlantsView()
+                            .environmentObject(self.fireDBHelper)
+                            .environmentObject(self.fireAuthHelper)
                             .tabItem {
                                 Label("My Plants", systemImage: "square")
                             }

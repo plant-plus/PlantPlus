@@ -122,11 +122,14 @@ struct PlantDetailView: View {
     }
     
     private func insertPlant(){
-        let userId = fireAuthHelper.user?.email ?? ""
+        //let userId = fireAuthHelper.user?.email ?? ""
+        let userEmail = UserDefaults.standard.string(forKey: "KEY_EMAIL") ?? ""
+        // TODO: fireAuthHelper cannot return userEmail
         
         let newPlant = Plant(id_plant: selectedPlant, name: perenualHelper.plantDetailResponse.common_name ?? "")
         
-        self.fireDBHelper.insertPlant(newPlant: newPlant, userID: userId)
+        //self.fireDBHelper.insertPlant(newPlant: newPlant, userID: userId)
+        self.fireDBHelper.insertPlant(newPlant: newPlant, userEmail: userEmail)
     }
 
     private func getDetail(){
