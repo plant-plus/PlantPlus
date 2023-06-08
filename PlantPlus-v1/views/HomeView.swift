@@ -26,6 +26,7 @@ struct HomeView: View {
                     TabView {
                         PlantsView()
                             .environmentObject(self.perenualHelper)
+                            .environmentObject(self.fireDBHelper)
                             .tabItem {
                                 Label("Plants", systemImage: "list.dash")
                             }
@@ -43,10 +44,24 @@ struct HomeView: View {
                                 Label("Profile", systemImage: "person")
                             }
                         
+                    }.navigationBarBackButtonHidden(true)
+                    .toolbar{
+                        ToolbarItemGroup(placement: .navigationBarTrailing){
+                            Button(action: {
+                                self.signOut()
+                            }){
+                                Text("Sign Out")
+                            }
+                        }
                     }
             } // Switch ends
         }// Navigation ends
     }// body ends
+    
+    func signOut() {
+        self.fireAuthHelper.signOut()
+        self.root = .Login
+    }
 }
 
 struct HomeView_Previews: PreviewProvider {
