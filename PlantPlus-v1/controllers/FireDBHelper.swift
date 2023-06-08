@@ -40,13 +40,13 @@ class FireDBHelper : ObservableObject{
         return shared
     }
     
-    func insertPlant(newPlant : Plant, userID : String) {
-        print(#function, "Trying to insert plant \(newPlant.name) to firestore")
+    func insertPlant(newPlant : Plant, userEmail : String) {
+         print(#function, "Trying to insert plant \(newPlant.name) to userEmail \(userEmail) firestore")
         
         do{
             try self.store
                 .collection(COLLECTION_PLANTS)
-                .document(userID)
+                .document(userEmail)
                 .collection(COLLECTION_PLANTS_USERS)
                 .addDocument(from: newPlant)
         }catch let error as NSError{
