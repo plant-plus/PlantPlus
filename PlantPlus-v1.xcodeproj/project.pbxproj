@@ -32,6 +32,16 @@
 		528BE6502A295CD10084BB0F /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528BE64F2A295CD10084BB0F /* SignUpView.swift */; };
 		528BE6522A2E68830084BB0F /* RootViewEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528BE6512A2E68830084BB0F /* RootViewEnum.swift */; };
 		528BE6542A2E696F0084BB0F /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528BE6532A2E696F0084BB0F /* LoginView.swift */; };
+		528BE6562A3512010084BB0F /* AIPlantHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528BE6552A3512010084BB0F /* AIPlantHelper.swift */; };
+		528BE6582A3518220084BB0F /* AIPlantView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528BE6572A3518220084BB0F /* AIPlantView.swift */; };
+		528BE65A2A3527CA0084BB0F /* plantTest1.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 528BE6592A3527CA0084BB0F /* plantTest1.jpeg */; };
+		528BE65D2A3542DB0084BB0F /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528BE65C2A3542DB0084BB0F /* ImagePicker.swift */; };
+		528BE65F2A3543070084BB0F /* ZoomableScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528BE65E2A3543070084BB0F /* ZoomableScrollView.swift */; };
+		528BE6622A3544960084BB0F /* FileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528BE6612A3544960084BB0F /* FileManager.swift */; };
+		528BE6672A35456E0084BB0F /* Picker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528BE6662A35456E0084BB0F /* Picker.swift */; };
+		528BE6692A35518C0084BB0F /* PickerHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528BE6682A35518C0084BB0F /* PickerHelper.swift */; };
+		528BE66B2A36834D0084BB0F /* AIPlantResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528BE66A2A36834D0084BB0F /* AIPlantResponse.swift */; };
+		528BE66D2A36CC0F0084BB0F /* AIPlantsIdentifiedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528BE66C2A36CC0F0084BB0F /* AIPlantsIdentifiedView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +66,16 @@
 		528BE64F2A295CD10084BB0F /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		528BE6512A2E68830084BB0F /* RootViewEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewEnum.swift; sourceTree = "<group>"; };
 		528BE6532A2E696F0084BB0F /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		528BE6552A3512010084BB0F /* AIPlantHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIPlantHelper.swift; sourceTree = "<group>"; };
+		528BE6572A3518220084BB0F /* AIPlantView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIPlantView.swift; sourceTree = "<group>"; };
+		528BE6592A3527CA0084BB0F /* plantTest1.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = plantTest1.jpeg; sourceTree = "<group>"; };
+		528BE65C2A3542DB0084BB0F /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		528BE65E2A3543070084BB0F /* ZoomableScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoomableScrollView.swift; sourceTree = "<group>"; };
+		528BE6612A3544960084BB0F /* FileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManager.swift; sourceTree = "<group>"; };
+		528BE6662A35456E0084BB0F /* Picker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Picker.swift; sourceTree = "<group>"; };
+		528BE6682A35518C0084BB0F /* PickerHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerHelper.swift; sourceTree = "<group>"; };
+		528BE66A2A36834D0084BB0F /* AIPlantResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIPlantResponse.swift; sourceTree = "<group>"; };
+		528BE66C2A36CC0F0084BB0F /* AIPlantsIdentifiedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIPlantsIdentifiedView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +97,7 @@
 		528BE6052A1FA3F50084BB0F = {
 			isa = PBXGroup;
 			children = (
+				528BE6592A3527CA0084BB0F /* plantTest1.jpeg */,
 				528BE6102A1FA3F50084BB0F /* PlantPlus-v1 */,
 				528BE60F2A1FA3F50084BB0F /* Products */,
 			);
@@ -93,6 +114,8 @@
 		528BE6102A1FA3F50084BB0F /* PlantPlus-v1 */ = {
 			isa = PBXGroup;
 			children = (
+				528BE6602A35446B0084BB0F /* extensions */,
+				528BE65B2A3542A10084BB0F /* uiview */,
 				528BE6282A2014820084BB0F /* GoogleService-Info.plist */,
 				528BE6212A1FA4A50084BB0F /* views */,
 				528BE6202A1FA4990084BB0F /* models */,
@@ -118,6 +141,8 @@
 				528BE6322A201C640084BB0F /* PerenualHelper.swift */,
 				528BE6492A281F140084BB0F /* FireAuthHelper.swift */,
 				528BE64D2A281F880084BB0F /* FireDBHelper.swift */,
+				528BE6552A3512010084BB0F /* AIPlantHelper.swift */,
+				528BE6682A35518C0084BB0F /* PickerHelper.swift */,
 			);
 			path = controllers;
 			sourceTree = "<group>";
@@ -131,6 +156,8 @@
 				528BE63C2A27B5540084BB0F /* Plant.swift */,
 				528BE64B2A281F5A0084BB0F /* UserPlants.swift */,
 				528BE6512A2E68830084BB0F /* RootViewEnum.swift */,
+				528BE6662A35456E0084BB0F /* Picker.swift */,
+				528BE66A2A36834D0084BB0F /* AIPlantResponse.swift */,
 			);
 			path = models;
 			sourceTree = "<group>";
@@ -145,8 +172,27 @@
 				528BE63A2A201DBF0084BB0F /* PlantDetailView.swift */,
 				528BE64F2A295CD10084BB0F /* SignUpView.swift */,
 				528BE6532A2E696F0084BB0F /* LoginView.swift */,
+				528BE6572A3518220084BB0F /* AIPlantView.swift */,
+				528BE66C2A36CC0F0084BB0F /* AIPlantsIdentifiedView.swift */,
 			);
 			path = views;
+			sourceTree = "<group>";
+		};
+		528BE65B2A3542A10084BB0F /* uiview */ = {
+			isa = PBXGroup;
+			children = (
+				528BE65C2A3542DB0084BB0F /* ImagePicker.swift */,
+				528BE65E2A3543070084BB0F /* ZoomableScrollView.swift */,
+			);
+			path = uiview;
+			sourceTree = "<group>";
+		};
+		528BE6602A35446B0084BB0F /* extensions */ = {
+			isa = PBXGroup;
+			children = (
+				528BE6612A3544960084BB0F /* FileManager.swift */,
+			);
+			path = extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -217,6 +263,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				528BE65A2A3527CA0084BB0F /* plantTest1.jpeg in Resources */,
 				528BE6192A1FA3F90084BB0F /* Preview Assets.xcassets in Resources */,
 				528BE6162A1FA3F90084BB0F /* Assets.xcassets in Resources */,
 				528BE6292A2014820084BB0F /* GoogleService-Info.plist in Resources */,
@@ -235,16 +282,25 @@
 				528BE6502A295CD10084BB0F /* SignUpView.swift in Sources */,
 				528BE6312A2016E60084BB0F /* UserProfileView.swift in Sources */,
 				528BE62F2A2016CD0084BB0F /* MyPlantsView.swift in Sources */,
+				528BE6692A35518C0084BB0F /* PickerHelper.swift in Sources */,
 				528BE63D2A27B5540084BB0F /* Plant.swift in Sources */,
 				528BE6122A1FA3F50084BB0F /* PlantPlus_v1App.swift in Sources */,
+				528BE6622A3544960084BB0F /* FileManager.swift in Sources */,
+				528BE66B2A36834D0084BB0F /* AIPlantResponse.swift in Sources */,
+				528BE65F2A3543070084BB0F /* ZoomableScrollView.swift in Sources */,
+				528BE6582A3518220084BB0F /* AIPlantView.swift in Sources */,
 				528BE6252A1FA4EA0084BB0F /* HomeView.swift in Sources */,
 				528BE62B2A2016AE0084BB0F /* PlantsView.swift in Sources */,
+				528BE66D2A36CC0F0084BB0F /* AIPlantsIdentifiedView.swift in Sources */,
+				528BE6672A35456E0084BB0F /* Picker.swift in Sources */,
 				528BE64E2A281F880084BB0F /* FireDBHelper.swift in Sources */,
 				528BE6542A2E696F0084BB0F /* LoginView.swift in Sources */,
 				528BE6392A201D1C0084BB0F /* PlantDetail.swift in Sources */,
 				528BE6352A201CBD0084BB0F /* PerenualResponse.swift in Sources */,
 				528BE6332A201C640084BB0F /* PerenualHelper.swift in Sources */,
 				528BE63B2A201DBF0084BB0F /* PlantDetailView.swift in Sources */,
+				528BE6562A3512010084BB0F /* AIPlantHelper.swift in Sources */,
+				528BE65D2A3542DB0084BB0F /* ImagePicker.swift in Sources */,
 				528BE64C2A281F5A0084BB0F /* UserPlants.swift in Sources */,
 				528BE64A2A281F140084BB0F /* FireAuthHelper.swift in Sources */,
 			);
@@ -378,6 +434,7 @@
 				DEVELOPMENT_TEAM = W88J8AFZF8;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Would like to use the camera to take photos";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -407,6 +464,7 @@
 				DEVELOPMENT_TEAM = W88J8AFZF8;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Would like to use the camera to take photos";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

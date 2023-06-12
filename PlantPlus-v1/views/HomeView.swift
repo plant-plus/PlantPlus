@@ -15,6 +15,10 @@ struct HomeView: View {
     private let fireAuthHelper = FireAuthHelper()
     let perenualHelper = PerenualHelper()
     
+    let aiPlantHelper = AIPlantHelper()
+    
+    //let viewModel = ViewModel()
+    @StateObject var vm = PickerHelper()
     @State private var root: RootView = .Login
     
     var body: some View {
@@ -24,6 +28,23 @@ struct HomeView: View {
                     LoginView(rootScreen: $root).environmentObject(self.fireAuthHelper).environmentObject(self.fireDBHelper).environmentObject(self.perenualHelper)
                 case .Home:
                     TabView {
+                        
+                        AIPlantView()
+                            .environmentObject(self.aiPlantHelper)
+                            .environmentObject(self.vm)
+                            .onAppear{
+                                UserDefaults.standard.setValue(false, forKey: "_UIConstraintBasedLayoutLogUnsatisfiable")
+                            }
+                            .tabItem {
+                                Label("AI Plants", systemImage: "list.dash")
+                            }
+                        
+                        AIPlantsIdentifiedView()
+                            .environmentObject(self.aiPlantHelper)
+                            .tabItem {
+                                Label("AI Plants I", systemImage: "list.dash")
+                            }
+                        
                         PlantsView()
                             .environmentObject(self.perenualHelper)
                             .environmentObject(self.fireDBHelper)

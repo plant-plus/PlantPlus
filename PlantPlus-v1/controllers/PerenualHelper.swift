@@ -48,8 +48,12 @@ class PerenualHelper: ObservableObject {
                                 if (data != nil){
                                     if let jsonData = data{
                                         
+                                        print("ESTE ES PRUEBA 0")
+                                        print(jsonData)
                                         let jsonDecoder = JSONDecoder()
                                         var perenualResponse = try jsonDecoder.decode(PerenualResponse.self, from: jsonData) as PerenualResponse
+                                        
+
                                         let dataField = perenualResponse.data!
                                         for disease in dataField {
                                             if (disease.default_image?.small_url != nil) {

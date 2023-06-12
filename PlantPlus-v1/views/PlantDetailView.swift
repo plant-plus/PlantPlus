@@ -17,7 +17,7 @@ struct PlantDetailView: View {
     
     var body: some View {
         VStack(){
-            Text("Common Name: \(perenualHelper.plantDetailResponse.common_name ?? "")")
+            Text("\(perenualHelper.plantDetailResponse.common_name ?? "")")
                 .font(.system(size: 26))
             
             SwiftUI.Image(uiImage: perenualHelper.plantDetailResponse.image ?? UIImage())
