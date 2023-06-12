@@ -13,7 +13,7 @@ import FirebaseFirestore
 
 @main
 struct PlantPlus_v1App: App {
-    
+
     init(){
         FirebaseApp.configure()
     }
