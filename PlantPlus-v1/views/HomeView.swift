@@ -60,7 +60,6 @@ struct HomeView: View {
                             .tabItem {
                                 Label("My Plants", systemImage: "square")
                             }
-
                         UserProfileView()
                             .environmentObject(self.fireAuthHelper)
                             .environmentObject(self.fireDBHelper)
