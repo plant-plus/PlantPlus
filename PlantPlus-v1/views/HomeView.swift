@@ -14,13 +14,13 @@ struct HomeView: View {
     private let fireDBHelper = FireDBHelper.getInstance() ?? FireDBHelper(store: Firestore.firestore())
     private let fireAuthHelper = FireAuthHelper()
     let perenualHelper = PerenualHelper()
-    
+
     let aiPlantHelper = AIPlantHelper()
-    
+
     //let viewModel = ViewModel()
     @StateObject var vm = PickerHelper()
     @State private var root: RootView = .Login
-    
+
     var body: some View {
         NavigationView {
             switch root {
@@ -28,7 +28,7 @@ struct HomeView: View {
                     LoginView(rootScreen: $root).environmentObject(self.fireAuthHelper).environmentObject(self.fireDBHelper).environmentObject(self.perenualHelper)
                 case .Home:
                     TabView {
-                        
+
                         AIPlantView()
                             .environmentObject(self.aiPlantHelper)
                             .environmentObject(self.vm)
@@ -38,13 +38,13 @@ struct HomeView: View {
                             .tabItem {
                                 Label("AI Plants", systemImage: "list.dash")
                             }
-                        
+
                         AIPlantsIdentifiedView()
                             .environmentObject(self.aiPlantHelper)
                             .tabItem {
                                 Label("AI Plants I", systemImage: "list.dash")
                             }
-                        
+
                         PlantsView()
                             .environmentObject(self.perenualHelper)
                             .environmentObject(self.fireDBHelper)
@@ -52,14 +52,15 @@ struct HomeView: View {
                             .tabItem {
                                 Label("Plants", systemImage: "list.dash")
                             }
-                        
+
                         MyPlantsView()
                             .environmentObject(self.fireDBHelper)
                             .environmentObject(self.fireAuthHelper)
+                            .environmentObject(self.perenualHelper)
                             .tabItem {
                                 Label("My Plants", systemImage: "square")
                             }
-                        
+
                         UserProfileView()
                             .environmentObject(self.fireAuthHelper)
                             .environmentObject(self.fireDBHelper)
@@ -67,7 +68,7 @@ struct HomeView: View {
                             .tabItem {
                                 Label("Profile", systemImage: "person")
                             }
-                        
+
                     }.navigationBarBackButtonHidden(true)
                     .toolbar{
                         ToolbarItemGroup(placement: .navigationBarTrailing){
@@ -81,7 +82,7 @@ struct HomeView: View {
             } // Switch ends
         }// Navigation ends
     }// body ends
-    
+
     func signOut() {
         self.fireAuthHelper.signOut()
         self.root = .Login

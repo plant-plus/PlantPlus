@@ -8,18 +8,19 @@
 import SwiftUI
 
 struct PlantDetailView: View {
-    
+
     let selectedPlant: String
-    
+
     @EnvironmentObject var perenualHelper : PerenualHelper
     @EnvironmentObject var fireDBHelper : FireDBHelper
     @EnvironmentObject var fireAuthHelper : FireAuthHelper
-    
+
     var body: some View {
         VStack(){
-            Text("\(perenualHelper.plantDetailResponse.common_name ?? "")")
+
+            Text("Common Name: \(perenualHelper.plantDetailResponse.common_name ?? "")")
                 .font(.system(size: 26))
-            
+
             SwiftUI.Image(uiImage: perenualHelper.plantDetailResponse.image ?? UIImage())
                 .resizable()
                 .frame(width: 200, height: 200)
@@ -120,14 +121,14 @@ struct PlantDetailView: View {
             self.getDetail()
         }
     }
-    
+
     private func insertPlant(){
         //let userId = fireAuthHelper.user?.email ?? ""
         let userEmail = UserDefaults.standard.string(forKey: "KEY_EMAIL") ?? ""
         // TODO: fireAuthHelper cannot return userEmail
-        
-        let newPlant = Plant(id_plant: selectedPlant, name: perenualHelper.plantDetailResponse.common_name ?? "")
-        
+
+        let newPlant = Plant(api_id: selectedPlant, common_name: perenualHelper.plantDetailResponse.common_name ?? "", watering: perenualHelper.plantDetailResponse.watering ?? "")
+
         //self.fireDBHelper.insertPlant(newPlant: newPlant, userID: userId)
         self.fireDBHelper.insertPlant(newPlant: newPlant, userEmail: userEmail)
     }
@@ -136,12 +137,5 @@ struct PlantDetailView: View {
         self.perenualHelper.fetchPlant(id: selectedPlant, withCompletion: {resp in
             print(#function, "onAppear - data : \(resp)")
         })
-    }
-}
-
-struct PlantDetailView_Previews: PreviewProvider {
-    @State static var id: UUID = UUID(uuidString: "2")!
-    static var previews: some View {
-        PlantDetailView(selectedPlant: "2")
     }
 }
