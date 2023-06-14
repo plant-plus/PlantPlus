@@ -11,21 +11,16 @@ struct PlantsView: View {
     
     @EnvironmentObject var perenualHelper : PerenualHelper
     @EnvironmentObject var fireDBHelper : FireDBHelper
-    @EnvironmentObject var fireAuthHelper : FireAuthHelper
     
     @State private var searchText = ""
     var body: some View {
         NavigationView {
             VStack {
                 List {
-            
                     if searchText.isEmpty{
 
                         ForEach(self.perenualHelper.perenualResponse.data?.enumerated().map({$0}) ?? [], id: \.element.self){index, currentPlant in
-                            
-                            NavigationLink(destination: PlantDetailView(selectedPlant: "\(currentPlant.id!)")
-                                .environmentObject(self.fireDBHelper)
-                                .environmentObject(self.fireAuthHelper)){
+                            NavigationLink(destination: PlantDetailView(selectedPlant: "\(currentPlant.id!)")){
                                 HStack {
                                     SwiftUI.Image(uiImage: currentPlant.image ?? UIImage())
                                         .resizable()
@@ -38,8 +33,7 @@ struct PlantsView: View {
                                     }
                                 }
                             }
-                        }
-                        
+                        }                        
                     }else{
                         ForEach(self.perenualHelper.perenualResponse.data?.enumerated().map({$0}) ?? [], id: \.element.self){index, currentPlant in
                             if (currentPlant.common_name ?? "").contains(searchText){
@@ -69,7 +63,7 @@ struct PlantsView: View {
     .onAppear(){
         //try to fetch weather using fetchWeatherInfo() function
         self.getPlantsList()
-        //self.fireDBHelper.getUser()
+        self.fireDBHelper.getUser()
     }
     
     }
@@ -80,8 +74,4 @@ struct PlantsView: View {
     }
 }
 
-struct PlantsView_Previews: PreviewProvider {
-    static var previews: some View {
-        PlantsView()
-    }
-}
+

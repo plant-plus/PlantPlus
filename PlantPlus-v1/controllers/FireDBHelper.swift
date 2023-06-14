@@ -41,7 +41,7 @@ class FireDBHelper : ObservableObject{
     }
     
     func insertPlant(newPlant : Plant, userEmail : String) {
-        print(#function, "Trying to insert plant \(newPlant.name) to userEmail \(userEmail) firestore")
+         print(#function, "Trying to insert plant \(newPlant.common_name) to userEmail \(userEmail) firestore")
         
         do{
             try self.store

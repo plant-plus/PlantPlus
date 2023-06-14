@@ -17,6 +17,7 @@ struct PlantDetailView: View {
     
     var body: some View {
         VStack(){
+            
             Text("Common Name: \(perenualHelper.plantDetailResponse.common_name ?? "")")
                 .font(.system(size: 26))
             
@@ -122,11 +123,13 @@ struct PlantDetailView: View {
     }
     
     private func insertPlant(){
+        //let userId = fireAuthHelper.user?.email ?? ""
         let userEmail = UserDefaults.standard.string(forKey: "KEY_EMAIL") ?? ""
         // TODO: fireAuthHelper cannot return userEmail
         
-        let newPlant = Plant(id_plant: selectedPlant, name: perenualHelper.plantDetailResponse.common_name ?? "")
+        let newPlant = Plant(api_id: selectedPlant, common_name: perenualHelper.plantDetailResponse.common_name ?? "", watering: perenualHelper.plantDetailResponse.watering ?? "")
         
+        //self.fireDBHelper.insertPlant(newPlant: newPlant, userID: userId)
         self.fireDBHelper.insertPlant(newPlant: newPlant, userEmail: userEmail)
     }
 
@@ -137,9 +140,4 @@ struct PlantDetailView: View {
     }
 }
 
-struct PlantDetailView_Previews: PreviewProvider {
-    @State static var id: UUID = UUID(uuidString: "2")!
-    static var previews: some View {
-        PlantDetailView(selectedPlant: "2")
-    }
-}
+

@@ -32,6 +32,7 @@
 		528BE6502A295CD10084BB0F /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528BE64F2A295CD10084BB0F /* SignUpView.swift */; };
 		528BE6522A2E68830084BB0F /* RootViewEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528BE6512A2E68830084BB0F /* RootViewEnum.swift */; };
 		528BE6542A2E696F0084BB0F /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528BE6532A2E696F0084BB0F /* LoginView.swift */; };
+		920D05272A38D99F0034C764 /* MyPlantsDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 920D05262A38D99F0034C764 /* MyPlantsDetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +57,7 @@
 		528BE64F2A295CD10084BB0F /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		528BE6512A2E68830084BB0F /* RootViewEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewEnum.swift; sourceTree = "<group>"; };
 		528BE6532A2E696F0084BB0F /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		920D05262A38D99F0034C764 /* MyPlantsDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPlantsDetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,6 +147,7 @@
 				528BE63A2A201DBF0084BB0F /* PlantDetailView.swift */,
 				528BE64F2A295CD10084BB0F /* SignUpView.swift */,
 				528BE6532A2E696F0084BB0F /* LoginView.swift */,
+				920D05262A38D99F0034C764 /* MyPlantsDetailView.swift */,
 			);
 			path = views;
 			sourceTree = "<group>";
@@ -237,6 +240,7 @@
 				528BE62F2A2016CD0084BB0F /* MyPlantsView.swift in Sources */,
 				528BE63D2A27B5540084BB0F /* Plant.swift in Sources */,
 				528BE6122A1FA3F50084BB0F /* PlantPlus_v1App.swift in Sources */,
+				920D05272A38D99F0034C764 /* MyPlantsDetailView.swift in Sources */,
 				528BE6252A1FA4EA0084BB0F /* HomeView.swift in Sources */,
 				528BE62B2A2016AE0084BB0F /* PlantsView.swift in Sources */,
 				528BE64E2A281F880084BB0F /* FireDBHelper.swift in Sources */,

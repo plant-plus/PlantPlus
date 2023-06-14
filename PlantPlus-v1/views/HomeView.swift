@@ -12,7 +12,6 @@ import FirebaseAuth
 
 struct HomeView: View {
     private let fireDBHelper = FireDBHelper.getInstance() ?? FireDBHelper(store: Firestore.firestore())
-    
     private let fireAuthHelper = FireAuthHelper()
     let perenualHelper = PerenualHelper()
     
@@ -36,6 +35,7 @@ struct HomeView: View {
                         MyPlantsView()
                             .environmentObject(self.fireDBHelper)
                             .environmentObject(self.fireAuthHelper)
+                            .environmentObject(self.perenualHelper)
                             .tabItem {
                                 Label("My Plants", systemImage: "square")
                             }
@@ -48,10 +48,24 @@ struct HomeView: View {
                                 Label("Profile", systemImage: "person")
                             }
                         
+                    }.navigationBarBackButtonHidden(true)
+                    .toolbar{
+                        ToolbarItemGroup(placement: .navigationBarTrailing){
+                            Button(action: {
+                                self.signOut()
+                            }){
+                                Text("Sign Out")
+                            }
+                        }
                     }
             } // Switch ends
         }// Navigation ends
     }// body ends
+    
+    func signOut() {
+        self.fireAuthHelper.signOut()
+        self.root = .Login
+    }
 }
 
 struct HomeView_Previews: PreviewProvider {
