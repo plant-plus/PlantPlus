@@ -60,6 +60,7 @@ struct HomeView: View {
                                 Label("My Plants", systemImage: "square")
                             }
                         
+                        
                         UserProfileView()
                             .environmentObject(self.fireAuthHelper)
                             .environmentObject(self.fireDBHelper)
