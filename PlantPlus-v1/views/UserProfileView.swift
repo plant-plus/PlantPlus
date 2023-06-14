@@ -1,12 +1,4 @@
-//
-//  UserProfileView.swift
-//  PlantPlus-v1
-//
-//  Created by Test on 2023-05-25.
-//
-
 import SwiftUI
-
 struct UserProfileView: View {
     
     @State private var name: String = ""
@@ -35,6 +27,11 @@ struct UserProfileView: View {
                         saveUserData()
                     }) {
                         Text("Save")
+                            .foregroundColor(.white)
+                            .padding()
+                            .frame(maxWidth: .infinity)
+                            .background(Color.green)
+                            .cornerRadius(10)
                     }
                 }
             }//form ends
@@ -44,6 +41,16 @@ struct UserProfileView: View {
                 self.email = self.fireDBHelper.user.email
             }
         }
+        .navigationBarTitle(Text("User Profile"), displayMode: .inline)
+        .padding()
+        .background(
+            LinearGradient(
+                gradient: Gradient(colors: [Color.green.opacity(0.8), Color.white]),
+                startPoint: .top,
+                endPoint: .bottom
+            )
+            .edgesIgnoringSafeArea(.all)
+        )
     }
     
     func saveUserData() {
@@ -56,10 +63,3 @@ struct UserProfileView: View {
         self.fireDBHelper.getUser()
     }
 }
-
-/*
-struct UserProfileView_Previews: PreviewProvider {
-    static var previews: some View {
-        UserProfileView()
-    }
-}*/

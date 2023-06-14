@@ -1,72 +1,55 @@
-//
-//  MyPlantsView.swift
-//  PlantPlus-v1
-//
-//  Created by Test on 2023-05-25.
-//
-
 import SwiftUI
 
 struct MyPlantsView: View {
 
-    @EnvironmentObject var fireDBHelper : FireDBHelper
-    @EnvironmentObject var fireAuthHelper : FireAuthHelper
-    @EnvironmentObject var perenualHelper : PerenualHelper
+    @EnvironmentObject var fireDBHelper: FireDBHelper
+    @EnvironmentObject var fireAuthHelper: FireAuthHelper
+    @EnvironmentObject var perenualHelper: PerenualHelper
 
     var body: some View {
-        ZStack(alignment: .bottom){
+        ZStack(alignment: .bottom) {
+            LinearGradient(
+                gradient: Gradient(colors: [Color.green.opacity(0.8), Color.white]),
+                startPoint: .top,
+                endPoint: .bottom
+            )
+            .edgesIgnoringSafeArea(.all)
 
-
-            List{
-                ForEach(self.fireDBHelper.plantList.enumerated().map({$0}), id: \.element.self){index, currentPlant in
-                    NavigationLink(destination: MyPlantsDetailView(selectedMyPlantApiId: "\(currentPlant.api_id)").environmentObject(self.perenualHelper)){
+            List {
+                ForEach(self.fireDBHelper.plantList.enumerated().map({ $0 }), id: \.element.self) { index, currentPlant in
+                    NavigationLink(destination: MyPlantsDetailView(selectedMyPlantApiId: "\(currentPlant.api_id)").environmentObject(self.perenualHelper)) {
                         HStack {
-//                                           SwiftUI.Image(uiImage: currentPlant.image ?? UIImage())
-//                                               .resizable()
-//                                               .aspectRatio(contentMode: .fit)
-//                                               .frame(width: 80, height: 80)
-                            VStack(alignment: .leading){
-                            Text("\(currentPlant.common_name ?? "")")
-                                                   .bold()
+                            SwiftUI.Image(systemName: "leaf")
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .frame(width: 70, height: 70)
+                                .foregroundColor(.green)
+                                .clipShape(Circle())
 
+                            VStack(alignment: .leading) {
+                                Text("\(currentPlant.common_name ?? "")")
+                                    .font(.headline)
+                                    .foregroundColor(.black)
 
-                                           }
-                                       }
-                                   }
-
-
-
-//                                   VStack(alignment: .leading){
-//                                       Text("Id Plant - \(currentPlant.api_id)")
-//                                           .italic()
-//
-//                                       Text("Name: \(currentPlant.common_name)")
-//                                           .bold()
-//
-//                                       Text("Date Added: \(currentPlant.dateAdded)")
-//
-//                                   }//VStack
-                               }//ForEach
-                           }//List ends
-                       }
-                       .navigationTitle("My History")
-                       .onAppear(){
-                           //get all plants from DB
-
-                           var userIdS = UserDefaults.standard.string(forKey: "KEY_EMAIL") ?? ""
-
-
-                           self.fireDBHelper.plantList.removeAll()
-
-                           self.fireDBHelper.getAllPlants(plantID: userIdS)
-
-
-                       }
-
-
-
-
+                                Text("Id Plant - \(currentPlant.api_id)")
+                                    .font(.subheadline)
+                                    .foregroundColor(.gray)
+                                    .italic()
+                            }
+                        }
+                        .padding(.vertical, 8)
+                    }
+                }
+                .listRowBackground(Color.clear)
+            }
+            .navigationTitle("My History")
+            .onAppear {
+                // Get all plants from DB
+                let userId = UserDefaults.standard.string(forKey: "KEY_EMAIL") ?? ""
+                self.fireDBHelper.plantList.removeAll()
+                self.fireDBHelper.getAllPlants(plantID: userId)
+            }
+            .padding(.bottom, 20)
+        }
     }
-
-
 }

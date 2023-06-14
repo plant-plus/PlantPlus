@@ -97,7 +97,14 @@ struct LoginView: View {
                     .foregroundColor(.green)
             }
             .padding()
-            .background(Color.green.opacity(0.05).ignoresSafeArea())
+            .background(
+                LinearGradient(
+                    gradient: Gradient(colors: [Color.green.opacity(0.8), Color.white]),
+                    startPoint: .top,
+                    endPoint: .bottom
+                )
+                .edgesIgnoringSafeArea(.all)
+            )
         }
         .navigationBarTitle("Welcome to Plant+")
         .accentColor(.green)
@@ -108,6 +115,7 @@ struct LoginView: View {
                 dismissButton: .default(Text("OK"))
             )
         }
+       
     }
     
     // Validate email format
