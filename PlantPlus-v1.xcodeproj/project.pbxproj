@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		40B3681E2A3A63A20089AD18 /* MyPlantsDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B3681D2A3A63A10089AD18 /* MyPlantsDetailView.swift */; };
 		528BE6122A1FA3F50084BB0F /* PlantPlus_v1App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528BE6112A1FA3F50084BB0F /* PlantPlus_v1App.swift */; };
 		528BE6162A1FA3F90084BB0F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 528BE6152A1FA3F90084BB0F /* Assets.xcassets */; };
 		528BE6192A1FA3F90084BB0F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 528BE6182A1FA3F90084BB0F /* Preview Assets.xcassets */; };
@@ -45,6 +46,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		40B3681D2A3A63A10089AD18 /* MyPlantsDetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyPlantsDetailView.swift; sourceTree = "<group>"; };
 		528BE60E2A1FA3F50084BB0F /* PlantPlus-v1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "PlantPlus-v1.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		528BE6112A1FA3F50084BB0F /* PlantPlus_v1App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantPlus_v1App.swift; sourceTree = "<group>"; };
 		528BE6152A1FA3F90084BB0F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -169,6 +171,7 @@
 				528BE62A2A2016AE0084BB0F /* PlantsView.swift */,
 				528BE62E2A2016CD0084BB0F /* MyPlantsView.swift */,
 				528BE6302A2016E60084BB0F /* UserProfileView.swift */,
+				40B3681D2A3A63A10089AD18 /* MyPlantsDetailView.swift */,
 				528BE63A2A201DBF0084BB0F /* PlantDetailView.swift */,
 				528BE64F2A295CD10084BB0F /* SignUpView.swift */,
 				528BE6532A2E696F0084BB0F /* LoginView.swift */,
@@ -302,6 +305,7 @@
 				528BE6562A3512010084BB0F /* AIPlantHelper.swift in Sources */,
 				528BE65D2A3542DB0084BB0F /* ImagePicker.swift in Sources */,
 				528BE64C2A281F5A0084BB0F /* UserPlants.swift in Sources */,
+				40B3681E2A3A63A20089AD18 /* MyPlantsDetailView.swift in Sources */,
 				528BE64A2A281F140084BB0F /* FireAuthHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
