@@ -81,7 +81,7 @@ struct MyPlantsDetailView: View {
                             
                             
                         }){
-                            Text("Set Remainder")
+                            Text("Set Reminder")
                         }
 
                     }
@@ -107,6 +107,14 @@ struct MyPlantsDetailView: View {
             
         
         }
+        .background(
+            LinearGradient(
+                gradient: Gradient(colors: [Color.green.opacity(0.8), Color.white]),
+                startPoint: .top,
+                endPoint: .bottom
+            )
+            .edgesIgnoringSafeArea(.all)
+        )
         .onAppear {
             self.getDetail()
         }
