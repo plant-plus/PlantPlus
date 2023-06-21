@@ -14,6 +14,9 @@ struct PlantDetailView: View {
     @EnvironmentObject var perenualHelper : PerenualHelper
     @EnvironmentObject var fireDBHelper : FireDBHelper
     @EnvironmentObject var fireAuthHelper : FireAuthHelper
+    
+    @State private var showingNicknameAlert = false
+    @State private var nickname = "my plant"
 
     var body: some View {
         VStack(){
@@ -107,7 +110,10 @@ struct PlantDetailView: View {
                     }
                 }
                 Button(action:{
-                    self.insertPlant()
+                    
+                    showingNicknameAlert.toggle()
+                    
+                    
                 }){
                     HStack {
                         SwiftUI.Image(systemName: "heart.fill")
@@ -115,6 +121,11 @@ struct PlantDetailView: View {
                         Text("Add to My Plants")
                     }
                 }
+                .alert("Enter the nickname", isPresented: $showingNicknameAlert) {
+                            TextField("nickname", text: $nickname)
+                            Button("OK", action: self.insertPlant)
+                    Button("cancel", role: .cancel){}
+                        }
             }
         }
         .onAppear {
@@ -125,9 +136,8 @@ struct PlantDetailView: View {
     private func insertPlant(){
         //let userId = fireAuthHelper.user?.email ?? ""
         let userEmail = UserDefaults.standard.string(forKey: "KEY_EMAIL") ?? ""
-        // TODO: fireAuthHelper cannot return userEmail
 
-        let newPlant = Plant(api_id: selectedPlant, common_name: perenualHelper.plantDetailResponse.common_name ?? "", watering: perenualHelper.plantDetailResponse.watering ?? "")
+        let newPlant = Plant(api_id: selectedPlant, nick_name : nickname, common_name: perenualHelper.plantDetailResponse.common_name ?? "", watering: perenualHelper.plantDetailResponse.watering ?? "")
 
         //self.fireDBHelper.insertPlant(newPlant: newPlant, userID: userId)
         self.fireDBHelper.insertPlant(newPlant: newPlant, userEmail: userEmail)

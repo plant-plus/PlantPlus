@@ -27,20 +27,24 @@ struct MyPlantsView: View {
                                     .clipShape(Circle())
 
                                 VStack(alignment: .leading) {
-                                    Text("\(currentPlant.common_name ?? "")")
+                                    Text("\(currentPlant.nick_name ?? "")")
                                         .font(.headline)
                                         .foregroundColor(.black)
-
-                                    Text("Id Plant - \(currentPlant.api_id)")
+                                    
+                                    Text("\(currentPlant.common_name ?? "")")
                                         .font(.subheadline)
                                         .foregroundColor(.gray)
                                         .italic()
+
+                                    
+                                        
                                 }
                             }
                             .padding(.vertical, 8)
                         }
                     }
                     .listRowBackground(Color.clear)
+                    
                 }
                 .navigationTitle("My History")
                 .padding(.bottom, 20)
