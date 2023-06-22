@@ -69,7 +69,7 @@ struct HomeView: View {
                         }
                         .accentColor(.green) // Set the accent color to green
                 }
-                .navigationBarBackButtonHidden(true)
+                /*.navigationBarBackButtonHidden(true)
                 .toolbar {
                     ToolbarItemGroup(placement: .navigationBarTrailing) {
                         Button(action: {
@@ -78,7 +78,7 @@ struct HomeView: View {
                             Text("Sign Out")
                         }
                     }
-                }
+                }*/
             } // Switch ends
         }// Navigation ends
         .navigationViewStyle(StackNavigationViewStyle()) // Apply stack navigation style
