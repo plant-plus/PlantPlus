@@ -14,54 +14,90 @@ struct AIPlantView: View {
     
     var body: some View {
         NavigationView {
-            VStack{
-                Text("AI PLANT")
-                if let image = vm.image {
-                    ZoomableScrollView {
-                        SwiftUI.Image(uiImage: image)
+            ZStack {
+                LinearGradient(
+                    gradient: Gradient(colors: [Color.green.opacity(0.4), Color.white]),
+                    startPoint: .top,
+                    endPoint: .bottom
+                )
+                .edgesIgnoringSafeArea(.all)
+                
+                VStack{
+                    if let image = vm.image {
+                        ZoomableScrollView {
+                            SwiftUI.Image(uiImage: image)
+                                .resizable()
+                                .scaledToFit()
+                                .frame(minWidth: 0, maxWidth: .infinity)
+                        }
+                    } else {
+                        SwiftUI.Image(systemName: "photo.fill")
                             .resizable()
                             .scaledToFit()
+                            .opacity(0.6)
                             .frame(minWidth: 0, maxWidth: .infinity)
+                            .padding(.horizontal)
                     }
-                } else {
-                    SwiftUI.Image(systemName: "photo.fill")
-                        .resizable()
-                        .scaledToFit()
-                        .opacity(0.6)
-                        .frame(minWidth: 0, maxWidth: .infinity)
-                        .padding(.horizontal)
+                    HStack {
+                        Button {
+                            vm.source = .camera
+                            vm.showPhotoPicker()
+                        } label: {
+                            VStack{
+                                SwiftUI.Image("iconCamera")
+                                    .resizable()
+                                    .frame(width: 32.0, height: 32.0)
+                                //Text("Camera")
+                            }
+                        }
+                        .padding()
+                        .background(Color.gray)
+                        .foregroundColor(Color.black)
+                        .cornerRadius(10)
+                        
+                        Button {
+                            vm.source = .library
+                            vm.showPhotoPicker()
+                        } label: {
+                            VStack{
+                                SwiftUI.Image("iconGallery")
+                                    .resizable()
+                                    .frame(width: 32.0, height: 32.0)
+                                //Text("Camera")
+                            }
+                        }
+                        .padding()
+                        .background(
+                            RoundedRectangle(cornerRadius: 10)
+                            .stroke(lineWidth: 2)
+                        )
+                    }.padding()
+                    Button(action:{
+                        print("Identifying Plant")
+                        let success = self.getUrlImage(image2: vm.image)
+                        aiPlantHelper.performRequest(url: success)
+                        //aiPlantHelper.performRequest()
+                        //self.signUpSelection = 3
+                    }, label: {
+                        VStack{
+                            SwiftUI.Image("iconAI")
+                                .resizable()
+                                .frame(width: 32.0, height: 32.0)
+                            //Text("Camera")
+                        }
+                    }
+                    ).padding()
+                    .background(Color.green)
+                    .foregroundColor(Color.white)
+                    .cornerRadius(10)
+                    
+                }.sheet(isPresented: $vm.showPicker) {
+                    ImagePicker(sourceType: vm.source == .library ? .photoLibrary : .camera, selectedImage: $vm.image)
+                        .ignoresSafeArea()
                 }
-                
-                
-                Button(action:{
-                    print("Identifying Plant")
-                    let success = self.getUrlImage(image2: vm.image)
-                    aiPlantHelper.performRequest(url: success)
-                    //aiPlantHelper.performRequest()
-                    //self.signUpSelection = 3
-                }){
-                    Text("Identify Plant")
-                }//Button ends
-                
-                HStack {
-                    Button {
-                        vm.source = .camera
-                        vm.showPhotoPicker()
-                    } label: {
-                        Text("Camera")
-                    }
-                    Button {
-                        vm.source = .library
-                        vm.showPhotoPicker()
-                    } label: {
-                        Text("Photos")
-                    }
-                }
-            }.sheet(isPresented: $vm.showPicker) {
-                ImagePicker(sourceType: vm.source == .library ? .photoLibrary : .camera, selectedImage: $vm.image)
-                    .ignoresSafeArea()
             }
-        }
+        } //Navigation view
+ 
     }
     
     
