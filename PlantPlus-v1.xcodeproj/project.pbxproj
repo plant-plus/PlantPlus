@@ -451,7 +451,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"PlantPlus-v1/Preview Content\"";
-				DEVELOPMENT_TEAM = W88J8AFZF8;
+				DEVELOPMENT_TEAM = AS5N998P57;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSCameraUsageDescription = "Would like to use the camera to take photos";
@@ -481,7 +481,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"PlantPlus-v1/Preview Content\"";
-				DEVELOPMENT_TEAM = W88J8AFZF8;
+				DEVELOPMENT_TEAM = AS5N998P57;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSCameraUsageDescription = "Would like to use the camera to take photos";

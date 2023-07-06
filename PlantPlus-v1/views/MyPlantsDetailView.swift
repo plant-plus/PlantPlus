@@ -17,81 +17,86 @@ struct MyPlantsDetailView: View {
     @EnvironmentObject var fireAuthHelper : FireAuthHelper
     
     @State var showingNoWateringPopup = false
+    let dayIntervals = [1,3,5,7,14]
+    
+    @State private var selectedDayInterval = 1
     
     var body: some View {
-        ZStack {
-            LinearGradient(
-                gradient: Gradient(colors: [Color.green.opacity(0.8), Color.white]),
-                startPoint: .top,
-                endPoint: .bottom
-            )
-            .edgesIgnoringSafeArea(.all)
+        NavigationStack{
             
-            VStack {
-                Text(" \(perenualHelper.plantDetailResponse.common_name ?? "")")
-                    .font(.system(size: 26))
+            
+            ZStack {
+                LinearGradient(
+                    gradient: Gradient(colors: [Color.green.opacity(0.8), Color.white]),
+                    startPoint: .top,
+                    endPoint: .bottom
+                )
+                .edgesIgnoringSafeArea(.all)
                 
-                SwiftUI.Image(uiImage: perenualHelper.plantDetailResponse.image ?? UIImage())
-                    .resizable()
-                    .frame(width: 200, height: 200)
-                
-                Form {
-                    Section {
-                        
-                        HStack {
-                            Text("Watering:")
-                            Text("\(perenualHelper.plantDetailResponse.watering ?? "")")
-                                .frame(maxWidth: .infinity, alignment: .trailing)
+                VStack {
+                    Text(" \(perenualHelper.plantDetailResponse.common_name ?? "")")
+                        .font(.system(size: 26))
+                    
+                    SwiftUI.Image(uiImage: perenualHelper.plantDetailResponse.image ?? UIImage())
+                        .resizable()
+                        .frame(width: 200, height: 200)
+                    
+                    Form{
+                        Section {
                             
-                            Button(action: {
-                                // request permission
-                                UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { success, error in
-                                    if success {
-                                        print("All set!")
-                                    } else if let error = error {
-                                        print(error.localizedDescription)
+                            HStack {
+                                Text("Watering:")
+                                Text("\(perenualHelper.plantDetailResponse.watering ?? "")")
+                                    .frame(maxWidth: .infinity, alignment: .trailing)
+                                
+                            }
+                            
+                            HStack{
+                                SwiftUI.Picker("Select an interval", selection: $selectedDayInterval) {
+                                    ForEach(dayIntervals, id: \.self) {
+                                        Text("\($0) days")
                                     }
                                 }
+                            }
+                            
+                            HStack{
                                 
-                                // scheduling
-                                let content = UNMutableNotificationContent()
-                                content.title = "Water your \(perenualHelper.plantDetailResponse.common_name ?? "")"
-                                content.sound = UNNotificationSound.default
-
-                                if perenualHelper.plantDetailResponse.watering ?? "" == "none" {
-                                    // pop up, no watering
-                                    showingNoWateringPopup = true
-                                } else {
-                                    var dayInterval = 1
-                                    switch perenualHelper.plantDetailResponse.watering ?? "" {
-                                    case "frequent":
-                                        dayInterval = 1
-                                    case "average":
-                                        dayInterval = 3
-                                    case "minimum":
-                                        dayInterval = 7
-                                    default:
-                                        dayInterval = 1
+                                Button(action: {
+                                    // request permission
+                                    UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { success, error in
+                                        if success {
+                                            print("All set!")
+                                        } else if let error = error {
+                                            print(error.localizedDescription)
+                                        }
                                     }
+                                    
+                                    // scheduling
+                                    let content = UNMutableNotificationContent()
+                                    content.title = "Water your \(perenualHelper.plantDetailResponse.common_name ?? "")"
+                                    content.sound = UNNotificationSound.default
+                                    
+                                    
                                     
                                     // show this notification five seconds from now
                                     // TODO: for testing purpose, interval is set to 5 seconds
-//                                    let trigger = UNTimeIntervalNotificationTrigger(timeInterval: TimeInterval(dayInterval * 86400), repeats: true)
+                                    //                                    let trigger = UNTimeIntervalNotificationTrigger(timeInterval: TimeInterval(selectedDayInterval * 86400), repeats: true)
                                     let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
-
+                                    
                                     // choose a random identifier
                                     let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
-
+                                    
                                     // add our notification request
                                     UNUserNotificationCenter.current().add(request)
                                 }
-                            }) {
-                                Text("Set Reminder")
+                                ) {
+                                    Text("Set Reminder")
+                                }
                             }
-                        }
-                        .buttonStyle(.borderedProminent)
-                        .alert("No watering needed!", isPresented: $showingNoWateringPopup) {
-                            Button("OK", role: .cancel) { }
+                            .buttonStyle(.borderedProminent)
+                            .alert("No watering needed!", isPresented: $showingNoWateringPopup) {
+                                Button("OK", role: .cancel) { }
+                            }
                         }
                         
                         HStack {
@@ -99,11 +104,13 @@ struct MyPlantsDetailView: View {
                             Text("\(perenualHelper.plantDetailResponse.sunlight?.joined(separator: ", ") ?? "")")
                                 .frame(maxWidth: .infinity, alignment: .trailing)
                         }
+                        
                     }
                 }
-            }
-            .onAppear {
-                self.getDetail()
+
+                .onAppear {
+                    self.getDetail()
+                }
             }
         }
     }
