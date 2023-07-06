@@ -12,6 +12,8 @@ import UIKit
 class AIPlantHelper: ObservableObject {
     
     @Published var aIPlantResponse = AIPlantResponse()
+    
+    
 
     /// Encode an image file into Base64 ASCII
     func encodeFile(_ url: URL) -> String? {

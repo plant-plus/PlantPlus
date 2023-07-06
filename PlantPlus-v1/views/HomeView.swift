@@ -37,6 +37,7 @@ struct HomeView: View {
 
                     AIPlantsIdentifiedView()
                         .environmentObject(self.aiPlantHelper)
+                        .environmentObject(self.fireDBHelper)
                         .tabItem {
                             Label("AI Plants I", systemImage: "square")
                         }
