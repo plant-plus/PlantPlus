@@ -31,14 +31,14 @@ struct HomeView: View {
                             UserDefaults.standard.setValue(false, forKey: "_UIConstraintBasedLayoutLogUnsatisfiable")
                         }
                         .tabItem {
-                            Label("AI Plants", systemImage: "list.dash")
+                            Label("AI Plants", systemImage: "sun.max.fill" )
                         }
                         .accentColor(.green) // Set the accent color to green
 
                     AIPlantsIdentifiedView()
                         .environmentObject(self.aiPlantHelper)
                         .tabItem {
-                            Label("AI Plants I", systemImage: "list.dash")
+                            Label("AI Plants I", systemImage: "square")
                         }
                         .accentColor(.green) // Set the accent color to green
 
@@ -56,7 +56,7 @@ struct HomeView: View {
                         .environmentObject(self.fireAuthHelper)
                         .environmentObject(self.perenualHelper)
                         .tabItem {
-                            Label("My Plants", systemImage: "square")
+                            Label("My Plants", systemImage: "heart.fill")
                         }
                         .accentColor(.green) // Set the accent color to green
 
