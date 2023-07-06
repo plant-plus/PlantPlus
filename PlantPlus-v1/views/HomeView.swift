@@ -42,6 +42,15 @@ struct HomeView: View {
                         }
                         .accentColor(.green) // Set the accent color to green
 
+                    MapSearchView()
+                        .environmentObject(self.fireAuthHelper)
+                        .environmentObject(self.fireDBHelper)
+                        .environmentObject(self.perenualHelper)
+                        .tabItem {
+                            Label("Nurseries Near Me", systemImage: "map")
+                        }
+                        .accentColor(.green) // Set the accent color to green
+                    
                     PlantsView()
                         .environmentObject(self.perenualHelper)
                         .environmentObject(self.fireDBHelper)

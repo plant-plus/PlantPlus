@@ -56,5 +56,9 @@ struct MyPlantsView: View {
             self.fireDBHelper.plantList.removeAll()
             self.fireDBHelper.getAllPlants(plantID: userId)
         }
+        .navigationViewStyle(StackNavigationViewStyle()) // Apply stack navigation style
+        .accentColor(.green) // Set the accent color to green
+        .background(Color.white) // Set background color to white
+        .navigationBarTitle("Home", displayMode: .inline) // Set navigation title
     }
 }

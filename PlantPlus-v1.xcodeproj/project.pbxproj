@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		40B3681E2A3A63A20089AD18 /* MyPlantsDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B3681D2A3A63A10089AD18 /* MyPlantsDetailView.swift */; };
+		40D3C3442A565EA80020DFF0 /* MapSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40D3C3432A565EA80020DFF0 /* MapSearchView.swift */; };
+		40D3C3462A565F4F0020DFF0 /* LocationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40D3C3452A565F4F0020DFF0 /* LocationHelper.swift */; };
+		40D3C34A2A56602B0020DFF0 /* MapSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40D3C3492A56602B0020DFF0 /* MapSearch.swift */; };
+		40D3C34C2A56610C0020DFF0 /* LocalSearchHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40D3C34B2A56610C0020DFF0 /* LocalSearchHelper.swift */; };
 		528BE6122A1FA3F50084BB0F /* PlantPlus_v1App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528BE6112A1FA3F50084BB0F /* PlantPlus_v1App.swift */; };
 		528BE6162A1FA3F90084BB0F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 528BE6152A1FA3F90084BB0F /* Assets.xcassets */; };
 		528BE6192A1FA3F90084BB0F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 528BE6182A1FA3F90084BB0F /* Preview Assets.xcassets */; };
@@ -47,6 +51,10 @@
 
 /* Begin PBXFileReference section */
 		40B3681D2A3A63A10089AD18 /* MyPlantsDetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyPlantsDetailView.swift; sourceTree = "<group>"; };
+		40D3C3432A565EA80020DFF0 /* MapSearchView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapSearchView.swift; sourceTree = "<group>"; };
+		40D3C3452A565F4F0020DFF0 /* LocationHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationHelper.swift; sourceTree = "<group>"; };
+		40D3C3492A56602B0020DFF0 /* MapSearch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapSearch.swift; sourceTree = "<group>"; };
+		40D3C34B2A56610C0020DFF0 /* LocalSearchHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalSearchHelper.swift; sourceTree = "<group>"; };
 		528BE60E2A1FA3F50084BB0F /* PlantPlus-v1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "PlantPlus-v1.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		528BE6112A1FA3F50084BB0F /* PlantPlus_v1App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantPlus_v1App.swift; sourceTree = "<group>"; };
 		528BE6152A1FA3F90084BB0F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -140,7 +148,9 @@
 		528BE61F2A1FA48E0084BB0F /* controllers */ = {
 			isa = PBXGroup;
 			children = (
+				40D3C34B2A56610C0020DFF0 /* LocalSearchHelper.swift */,
 				528BE6322A201C640084BB0F /* PerenualHelper.swift */,
+				40D3C3452A565F4F0020DFF0 /* LocationHelper.swift */,
 				528BE6492A281F140084BB0F /* FireAuthHelper.swift */,
 				528BE64D2A281F880084BB0F /* FireDBHelper.swift */,
 				528BE6552A3512010084BB0F /* AIPlantHelper.swift */,
@@ -155,6 +165,7 @@
 				528BE6342A201CBD0084BB0F /* PerenualResponse.swift */,
 				528BE6362A201CF30084BB0F /* DataDiseases.swift */,
 				528BE6382A201D1C0084BB0F /* PlantDetail.swift */,
+				40D3C3492A56602B0020DFF0 /* MapSearch.swift */,
 				528BE63C2A27B5540084BB0F /* Plant.swift */,
 				528BE64B2A281F5A0084BB0F /* UserPlants.swift */,
 				528BE6512A2E68830084BB0F /* RootViewEnum.swift */,
@@ -171,6 +182,7 @@
 				528BE62A2A2016AE0084BB0F /* PlantsView.swift */,
 				528BE62E2A2016CD0084BB0F /* MyPlantsView.swift */,
 				528BE6302A2016E60084BB0F /* UserProfileView.swift */,
+				40D3C3432A565EA80020DFF0 /* MapSearchView.swift */,
 				40B3681D2A3A63A10089AD18 /* MyPlantsDetailView.swift */,
 				528BE63A2A201DBF0084BB0F /* PlantDetailView.swift */,
 				528BE64F2A295CD10084BB0F /* SignUpView.swift */,
@@ -281,6 +293,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				528BE6372A201CF30084BB0F /* DataDiseases.swift in Sources */,
+				40D3C3462A565F4F0020DFF0 /* LocationHelper.swift in Sources */,
 				528BE6522A2E68830084BB0F /* RootViewEnum.swift in Sources */,
 				528BE6502A295CD10084BB0F /* SignUpView.swift in Sources */,
 				528BE6312A2016E60084BB0F /* UserProfileView.swift in Sources */,
@@ -293,14 +306,17 @@
 				528BE65F2A3543070084BB0F /* ZoomableScrollView.swift in Sources */,
 				528BE6582A3518220084BB0F /* AIPlantView.swift in Sources */,
 				528BE6252A1FA4EA0084BB0F /* HomeView.swift in Sources */,
+				40D3C3442A565EA80020DFF0 /* MapSearchView.swift in Sources */,
 				528BE62B2A2016AE0084BB0F /* PlantsView.swift in Sources */,
 				528BE66D2A36CC0F0084BB0F /* AIPlantsIdentifiedView.swift in Sources */,
+				40D3C34C2A56610C0020DFF0 /* LocalSearchHelper.swift in Sources */,
 				528BE6672A35456E0084BB0F /* Picker.swift in Sources */,
 				528BE64E2A281F880084BB0F /* FireDBHelper.swift in Sources */,
 				528BE6542A2E696F0084BB0F /* LoginView.swift in Sources */,
 				528BE6392A201D1C0084BB0F /* PlantDetail.swift in Sources */,
 				528BE6352A201CBD0084BB0F /* PerenualResponse.swift in Sources */,
 				528BE6332A201C640084BB0F /* PerenualHelper.swift in Sources */,
+				40D3C34A2A56602B0020DFF0 /* MapSearch.swift in Sources */,
 				528BE63B2A201DBF0084BB0F /* PlantDetailView.swift in Sources */,
 				528BE6562A3512010084BB0F /* AIPlantHelper.swift in Sources */,
 				528BE65D2A3542DB0084BB0F /* ImagePicker.swift in Sources */,
