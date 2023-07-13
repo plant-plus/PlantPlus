@@ -17,15 +17,24 @@ struct MyPlantsView: View {
             VStack {
                 List {
                     ForEach(self.fireDBHelper.plantList.enumerated().map({ $0 }), id: \.element.self) { index, currentPlant in
-                        NavigationLink(destination: MyPlantsDetailView(selectedMyPlantApiId: "\(currentPlant.api_id)").environmentObject(self.perenualHelper)) {
+                        NavigationLink(destination: MyPlantsDetailView(selectedMyPlantApiId: currentPlant).environmentObject(self.perenualHelper)) {
                             HStack {
-                                SwiftUI.Image(systemName: "leaf")
+                                /*SwiftUI.Image(systemName: "leaf")
                                     .resizable()
                                     .aspectRatio(contentMode: .fit)
                                     .frame(width: 70, height: 70)
                                     .foregroundColor(.green)
                                     .clipShape(Circle())
-
+                                */
+                                AsyncImage(url: URL(string: currentPlant.url_image)) { image in
+                                            image.resizable()
+                                        } placeholder: {
+                                            ProgressView()
+                                        }
+                                        .frame(width: 70, height: 70)
+                                        .foregroundColor(.green)
+                                        .clipShape(Circle())
+                                
                                 VStack(alignment: .leading) {
                                     Text("\(currentPlant.nick_name ?? "")")
                                         .font(.headline)

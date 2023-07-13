@@ -10,7 +10,7 @@ import UserNotifications
 
 struct MyPlantsDetailView: View {
     
-    let selectedMyPlantApiId : String
+    let selectedMyPlantApiId : Plant
     
     @EnvironmentObject var perenualHelper : PerenualHelper
     @EnvironmentObject var fireDBHelper : FireDBHelper
@@ -34,19 +34,25 @@ struct MyPlantsDetailView: View {
                 .edgesIgnoringSafeArea(.all)
                 
                 VStack {
-                    Text(" \(perenualHelper.plantDetailResponse.common_name ?? "")")
+                    Text(" \(perenualHelper.plantDetailResponse.common_name ?? selectedMyPlantApiId.common_name)")
                         .font(.system(size: 26))
                     
-                    SwiftUI.Image(uiImage: perenualHelper.plantDetailResponse.image ?? UIImage())
-                        .resizable()
-                        .frame(width: 200, height: 200)
-                    
+                    //SwiftUI.Image(uiImage: perenualHelper.plantDetailResponse.image ?? URL(from: selectedMyPlantApiId.url_image))
+                    //Ima
+                    //    .resizable()
+                    //    .frame(width: 200, height: 200)
+                    AsyncImage(url: URL(string: selectedMyPlantApiId.url_image)) { image in
+                                image.resizable()
+                            } placeholder: {
+                                ProgressView()
+                            }
+                            .frame(width: 300, height: 300)
                     Form{
                         Section {
                             
                             HStack {
                                 Text("Watering:")
-                                Text("\(perenualHelper.plantDetailResponse.watering ?? "")")
+                                Text("\(perenualHelper.plantDetailResponse.watering ?? "Frequent")")
                                     .frame(maxWidth: .infinity, alignment: .trailing)
                                 
                             }
@@ -73,7 +79,7 @@ struct MyPlantsDetailView: View {
                                     
                                     // scheduling
                                     let content = UNMutableNotificationContent()
-                                    content.title = "Water your \(perenualHelper.plantDetailResponse.common_name ?? "")"
+                                    content.title = "Water your \(perenualHelper.plantDetailResponse.common_name ?? selectedMyPlantApiId.common_name)"
                                     content.sound = UNNotificationSound.default
                                     
                                     
@@ -116,7 +122,7 @@ struct MyPlantsDetailView: View {
     }
     
     private func getDetail() {
-        self.perenualHelper.fetchPlant(id: selectedMyPlantApiId, withCompletion: { resp in
+        self.perenualHelper.fetchPlant(id: selectedMyPlantApiId.id ?? "", withCompletion: { resp in
             print(#function, "onAppear - data : \(resp)")
         })
     }

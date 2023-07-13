@@ -14,6 +14,7 @@ struct Plant : Codable, Hashable{
     var nick_name : String = ""
     var common_name : String = ""
     var watering : String = ""
+    var url_image : String = "n/a"
 
     // TODO: Image
     var dateAdded : Date = Date.now

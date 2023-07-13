@@ -47,7 +47,6 @@ struct AIPlantsIdentifiedView: View {
                                                                 
                                                                 }
                                     }
-                                //}
                             }
                         }
                     }
@@ -70,7 +69,10 @@ struct AIPlantsIdentifiedView: View {
         let userEmail = UserDefaults.standard.string(forKey: "KEY_EMAIL") ?? ""
         var newPlant = Plant()
         
+        print(currentPlant)
+        
         newPlant.common_name = currentPlant.plant_name ?? ""
+        newPlant.url_image = currentPlant.plant_details!.wiki_image!.value ?? ""
         newPlant.watering = ""
         //let newPlant = Plant(api_id: selectedPlant, nick_name : nickname, common_name: perenualHelper.plantDetailResponse.common_name ?? "", watering: perenualHelper.plantDetailResponse.watering ?? "")
 
