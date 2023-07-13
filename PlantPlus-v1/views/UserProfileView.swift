@@ -50,7 +50,6 @@ struct UserProfileView: View {
             
             Spacer()
             Button(action:{
-                print("signOut")
                 self.signOut()
             }, label: {
                 VStack{
@@ -79,8 +78,9 @@ struct UserProfileView: View {
     }
     
     func signOut() {
-        self.fireAuthHelper.signOut()
+        //self.fireAuthHelper.signOut()
         self.root = .Login
+        print("Sign OUT!")
     }
     
     func saveUserData() {

@@ -98,6 +98,7 @@ class FireAuthHelper : ObservableObject{
         do {
             try Auth.auth().signOut()
             self.user = nil
+            print("Sign out")
         } catch let signOutError as NSError {
             print(#function, "Unable to sign out user: \(signOutError)")
         }
