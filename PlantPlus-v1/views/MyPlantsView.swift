@@ -17,7 +17,7 @@ struct MyPlantsView: View {
             VStack {
                 List {
                     ForEach(self.fireDBHelper.plantList.enumerated().map({ $0 }), id: \.element.self) { index, currentPlant in
-                        NavigationLink(destination: MyPlantsDetailView(selectedMyPlantApiId: currentPlant).environmentObject(self.perenualHelper)) {
+                        NavigationLink(destination: MyPlantsDetailView(selectedMyPlantApiId: currentPlant).environmentObject(self.perenualHelper).environmentObject(self.fireDBHelper)) {
                             HStack {
                                 /*SwiftUI.Image(systemName: "leaf")
                                     .resizable()
@@ -65,6 +65,7 @@ struct MyPlantsView: View {
             self.fireDBHelper.plantList.removeAll()
             self.fireDBHelper.getAllPlants(plantID: userId)
         }
+        
         .navigationViewStyle(StackNavigationViewStyle()) // Apply stack navigation style
         .accentColor(.green) // Set the accent color to green
         .background(Color.white) // Set background color to white

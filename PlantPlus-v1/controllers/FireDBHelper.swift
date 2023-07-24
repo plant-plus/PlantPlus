@@ -53,6 +53,19 @@ class FireDBHelper : ObservableObject{
             print(#function, "Unable to add document to firestore : \(error)")
         }
     }
+    
+    func removePlant(plantFireDBId : String, userEmail : String){
+        do{
+            try self.store
+                .collection(COLLECTION_PLANTS)
+                .document(userEmail)
+                .collection(COLLECTION_PLANTS_USERS)
+                .document(plantFireDBId)
+                .delete()
+        }catch let error as NSError{
+            print(#function, "Unable to remove document in firestore : \(error)")
+        }
+    }
 
 
     func getAllPlants(plantID : String) {
@@ -100,6 +113,11 @@ class FireDBHelper : ObservableObject{
 
             })
 
+    }
+    
+    func updatePlant(plantToUpdate : Plant, userID : String){
+        self.removePlant(plantFireDBId: plantToUpdate.id ?? "", userEmail: userID)
+        insertPlant(newPlant: plantToUpdate, userEmail: userID)
     }
 
     func insertUser(newUser : UserPlants){

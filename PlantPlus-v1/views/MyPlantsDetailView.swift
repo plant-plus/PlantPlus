@@ -16,10 +16,14 @@ struct MyPlantsDetailView: View {
     @EnvironmentObject var fireDBHelper : FireDBHelper
     @EnvironmentObject var fireAuthHelper : FireAuthHelper
     
+    
+    
     @State var showingNoWateringPopup = false
     let dayIntervals = [1,3,5,7,14]
     
     @State private var selectedDayInterval = 1
+    
+    @State var notesToDisplay = "notes"
     
     var body: some View {
         NavigationStack{
@@ -105,10 +109,28 @@ struct MyPlantsDetailView: View {
                             }
                         }
                         
-                        HStack {
-                            Text("Sunlight:")
-                            Text("\(perenualHelper.plantDetailResponse.sunlight?.joined(separator: ", ") ?? "")")
-                                .frame(maxWidth: .infinity, alignment: .trailing)
+                        
+                        
+                        HStack{
+                            Text("Notes: ")
+                        }
+                        
+                        HStack{
+                            
+                            TextField("Notes", text: $notesToDisplay, axis: .vertical)
+                                
+                                .lineLimit(5)
+                            
+                            
+                            
+                        }
+                        
+                        HStack{
+                            Button(action:{
+                                self.updatePlant()
+                            }){
+                                Text("save")
+                            }
                         }
                         
                     }
@@ -116,6 +138,7 @@ struct MyPlantsDetailView: View {
 
                 .onAppear {
                     self.getDetail()
+                    self.notesToDisplay = selectedMyPlantApiId.notes
                 }
             }
         }
@@ -125,5 +148,17 @@ struct MyPlantsDetailView: View {
         self.perenualHelper.fetchPlant(id: selectedMyPlantApiId.id ?? "", withCompletion: { resp in
             print(#function, "onAppear - data : \(resp)")
         })
+    }
+    
+    private func updatePlant(){
+        //let userId = fireAuthHelper.user?.email ?? ""
+        let userEmail = UserDefaults.standard.string(forKey: "KEY_EMAIL") ?? ""
+
+        var plantToUpdate = selectedMyPlantApiId
+        plantToUpdate.notes = self.notesToDisplay
+        
+
+        //self.fireDBHelper.insertPlant(newPlant: newPlant, userID: userId)
+        self.fireDBHelper.updatePlant(plantToUpdate: plantToUpdate, userID: userEmail)
     }
 }
