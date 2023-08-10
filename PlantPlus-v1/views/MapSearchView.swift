@@ -13,32 +13,38 @@ struct MapSearchView: View {
     @StateObject private var resultsModel = ResultsModel()
     
     var body: some View {
-        ZStack {
-            LinearGradient(
-                gradient: Gradient(colors: [Color.green.opacity(0.8), Color.white]),
-                startPoint: .top,
-                endPoint: .bottom
-            )
-            .edgesIgnoringSafeArea(.all)
-            
-            VStack(alignment: .leading) {
-            
-                List(resultsModel.mapSearchData) { item in
-                    VStack(alignment: .leading) {
-                        Text(item.title)
-                        Text(item.subtitle)
-                            .foregroundColor(.secondary)
-                    }
-                }.padding(.bottom, 20)
+        NavigationView {
+            ZStack {
+                LinearGradient(
+                    gradient: Gradient(colors: [Color.green.opacity(0.8), Color.white]),
+                    startPoint: .top,
+                    endPoint: .bottom
+                )
+                .edgesIgnoringSafeArea(.all)
+                
+                VStack{
+                    
+                    List(resultsModel.mapSearchData) { item in
+                        VStack(alignment: .leading) {
+                            Text(item.title)
+                            Text(item.subtitle)
+                                .foregroundColor(.secondary)
+                        }
+                    }.padding(.bottom, 20)
+                }
+                .onAppear {
+                    resultsModel.keyword = ""
+                    resultsModel.keyword = "Nurseries"
+                }
+                .onChange(of: self.locationHelper.currentLocation, perform: { _ in
+                    resultsModel.keyword = ""
+                    resultsModel.keyword = "Nurseries"
+                })
             }
-            .onAppear {
-                resultsModel.keyword = ""
-                resultsModel.keyword = "Nurseries"
-            }
-            .onChange(of: self.locationHelper.currentLocation, perform: { _ in
-                resultsModel.keyword = ""
-                resultsModel.keyword = "Nurseries"
-            })
+            .navigationViewStyle(StackNavigationViewStyle()) // Apply stack navigation style
+            .accentColor(.green) // Set the accent color to green
+            .background(Color.green) // Set background color to white
+            .navigationBarTitle("Nurseries", displayMode: .inline) // Set navigation title
         }
     }
     

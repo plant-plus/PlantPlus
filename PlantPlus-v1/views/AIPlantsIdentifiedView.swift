@@ -24,8 +24,10 @@ struct AIPlantsIdentifiedView: View {
                                     HStack {
                                         SwiftUI.Image(uiImage: currentPlant.image ?? UIImage())
                                             .resizable()
-                                            .aspectRatio(contentMode: .fit)
-                                            .frame(width: 100, height: 100)
+                                            //.aspectRatio(contentMode: .fit)
+                                            .frame(width: 70, height: 70)
+                                            .foregroundColor(.green)
+                                            .clipShape(Circle())
                                         VStack(alignment: .leading) {
                                             Text("\(currentPlant.plant_name ?? "")")
                                                 .bold()

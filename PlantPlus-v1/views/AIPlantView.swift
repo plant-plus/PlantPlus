@@ -27,16 +27,20 @@ struct AIPlantView: View {
                         ZoomableScrollView {
                             SwiftUI.Image(uiImage: image)
                                 .resizable()
-                                .scaledToFit()
-                                .frame(minWidth: 0, maxWidth: .infinity)
+                                //.scaledToFit()
+                                //.frame(minWidth: 0, maxWidth: .infinity)
+                                .aspectRatio(contentMode: .fit)
+                                .frame(width: 300, height: 250)
                         }
                     } else {
-                        SwiftUI.Image(systemName: "photo.fill")
+                        SwiftUI.Image(systemName: "leaf.fill")
                             .resizable()
-                            .scaledToFit()
+                            //.scaledToFit()
                             .opacity(0.6)
-                            .frame(minWidth: 0, maxWidth: .infinity)
-                            .padding(.horizontal)
+                            //.frame(minWidth: 0, maxWidth: .infinity)
+                            //.padding(.horizontal)
+                            .aspectRatio(contentMode: .fit)
+                            .frame(width: 300, height: 250)
                     }
                     HStack {
                         Button {
